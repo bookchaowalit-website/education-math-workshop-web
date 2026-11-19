@@ -7,6 +7,8 @@ html, body { margin: 0; background: var(--rs-bg); }
 .math-sheet { display: grid; gap: 20px; max-width: var(--rs-measure); padding: 24px; border: 1px solid var(--rs-line); border-radius: 18px; background: var(--rs-surface); }
 .math-sheet h2 { margin: 0; font-size: clamp(22px, 3vw, 28px); font-weight: 700; letter-spacing: -.015em; line-height: 1.25; }
 .math-label { margin: 0 0 4px; color: var(--rs-muted); font-size: 14px; font-weight: 600; }
+/* The sketch for each sheet, on a ruled grid like the pre-shell page (shell tokens only). */
+.math-diagram { display: grid; place-items: center; min-height: 120px; padding: 16px; border: 1px solid var(--rs-line); border-radius: 12px; background-color: var(--rs-bg); background-image: repeating-linear-gradient(0deg, transparent 0 23px, var(--rs-line) 23px 24px), repeating-linear-gradient(90deg, transparent 0 23px, var(--rs-line) 23px 24px); color: var(--rs-fg); font: italic 36px/1.1 Georgia, "Times New Roman", serif; overflow-wrap: anywhere; text-align: center; }
 .math-board { margin: 0; font-family: var(--rs-mono); font-size: 22px; overflow-wrap: anywhere; }
 .math-steps { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; counter-reset: step; }
 .math-step { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 4px 12px; padding: 14px 16px; border: 1px solid var(--rs-line); border-radius: 12px; background: var(--rs-bg); }

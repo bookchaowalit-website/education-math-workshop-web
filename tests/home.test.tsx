@@ -4,6 +4,7 @@ import { createRoot, type Root } from "react-dom/client";
 import { renderToString } from "react-dom/server";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import Home from "@/app/page";
+import { PROBLEMS } from "@/lib/math-workshop";
 import robots from "@/app/robots";
 import sitemap from "@/app/sitemap";
 import nextConfig from "@/next.config";
@@ -52,6 +53,15 @@ describe("home page (mounted)", () => {
     press(button("Start the sheet over"));
     expect(status()).toBe("0 of 3 moves shown");
     expect(document.activeElement?.textContent).toBe("Reveal next move");
+  });
+
+  it("keeps each problem's sketch on the sheet", () => {
+    for (const problem of PROBLEMS) {
+      press(button(`${problem.number} ·`));
+      const sketch = host.querySelector(".math-diagram");
+      expect(sketch?.textContent).toBe(problem.diagram);
+      expect(sketch?.getAttribute("aria-hidden")).toBe("true");
+    }
   });
 
   it("switches problems with pressed chips and folds the new sheet", () => {

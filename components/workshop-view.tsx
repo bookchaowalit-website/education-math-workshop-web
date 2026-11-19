@@ -63,6 +63,8 @@ export function WorkshopView() {
               <p className="math-label">On the board</p>
               <p className="math-board">{problem.notation}</p>
             </div>
+            {/* The sheet's sketch, as on the page before the Reader shell; decorative, the question and givens say it. */}
+            <div className="math-diagram" aria-hidden="true">{problem.diagram}</div>
             <ol className="math-steps" aria-label="Moves">
               {problem.steps.map((step, index) => {
                 const open = index < revealed;
